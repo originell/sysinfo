@@ -9,7 +9,9 @@ is
 a sane and easy to use library to collect/retrieve/access system informations under linux.
 
 Tested on:
-    * **ArchLinux** - single core cpu
+    * **2.6.31** - triple core cpu
+    * **2.6.31** - single core cpu
+    * **2.6.28** - single core cpu
 
 Requirements
 ============
