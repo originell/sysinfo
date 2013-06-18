@@ -147,14 +147,15 @@ class CPU(object):
 
         infs = [x.split(': ') for x in self.cpufile.replace('\t', '').split('\n')][:-2]
         inf_list = []
-        for i in xrange(cpus):
-            inf_list.append({})
-            for inf in infs:
-                if inf[0] != '':
-                    inf_list[i][inf[0].lower().lstrip()] = inf[1]
-                    infs.remove(inf)
-                else:
-                    break
+        i = -1
+        for inf in infs:
+            if inf[0] != '':
+                if inf[0] == "processor":
+                    inf_list.append({})
+                    i += 1
+                inf_list[i][inf[0].lower().lstrip()] = inf[1] if len(inf) > 1 else ""
+            else:
+                continue
         return inf_list
 
     def maxfreq(self):
